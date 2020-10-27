@@ -55,7 +55,7 @@ rolld6 () {
 	# segments it goes to via + (5 * ($RANDOM % 5)).
 	# Basically, imagine it as a 5x6 array, the first decides
 	# the X axis and the second decides the Y axis.
-	result=$(( ($RANDOM % $adjacent) + ($adjacent * ($RANDOM % $sides)) ))
+	result=$(( ($RANDOM % ($adjacent + $face)) + (($adjacent + $face) * ($RANDOM % $sides)) ))
 	
 	# Then, the dice "rolls". The $decider decides if the die
 	# is on the face or goes to the adjacent faces. Then
