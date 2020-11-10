@@ -117,7 +117,17 @@ do
 	# Cut the second ${dTen} off to re-roll the die via
 	# rolld10, then do printf to continue.
 	printf "${GREEN}IRONSWORN DICE ${DGRAY}(d6 vs. 2d10)\n"
-	printf "${DGRAY}d6: ${NORMAL}${dSix} ${DGRAY}.. d10: ${NORMAL}${dTen}"
+	printf "${DGRAY}d6: ${NORMAL}${dSix}"
+	
+	# This for loop is for my homebrew, Eyes of Destiny which
+	# uses a dice pool. Ignore the other dice when needed.
+	for i in {1..4}
+	do
+		rolld6
+		printf " ${dSix}"
+	done
+	
+	printf "${DGRAY}.. d10: ${NORMAL}${dTen}"
 	rolld10
 	printf " ${dTen}"
 	
